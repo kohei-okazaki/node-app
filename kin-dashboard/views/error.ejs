@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>エラー画面</title>
-<link rel='stylesheet' href='/stylesheets/style.css' />
-<link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>エラー画面</title>
+    <link rel='icon' type='image/png' href='/images/favicon.ico'>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
-　<h1><%= message %></h1>
-　<h2><%= error.status %></h2>
-　<pre><%= error.stack %></pre>
+    　<h1><%= message %></h1>
+    　<h2><%= error.status %></h2>
+    　
+    <pre><%= error.stack %></pre>
 </body>
 </html>
