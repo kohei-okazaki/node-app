@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ログイン画面</title>
+  <link rel='icon' type='image/png' href='/images/favicon.ico'>
+  <link rel='stylesheet' href='/stylesheets/loginLayout.min.css' />
+  <link rel='stylesheet' href='/stylesheets/validationEngine.jquery.min.css' />
+  <link rel='stylesheet' href='/stylesheets/mprogress.min.css' />
+  <link rel='stylesheet' href='/stylesheets/sal.min.css' />
+  <link rel='stylesheet' href='/stylesheets/input.min.css' />
+</head>
+<body>
+  <div class="login" data-sal="slide-up">
+  </div>
+  <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+  <script type="text/javascript" src="/javascripts/jquery.validationEngine-ja.min.js"></script>
+  <script type="text/javascript" src="/javascripts/jquery.validationEngine.min.js"></script>
+  <script type="text/javascript" src="/javascripts/mprogress.min.js"></script>
+  <script type="text/javascript" src="/javascripts/sal.min.js"></script>
+  <script type="text/javascript" src="/javascripts/common.min.js"></script>
+  <script type="text/javascript">
+    $(function () {
+
+      sal({
+        threshold: 1,
+        once: false
+      });
+
+      // validate処理
+      jQuery("#loginForm").validationEngine({
+        promptPosition: "topLeft:0"
+      });
+
+      // 進捗バーの処理
+      var mprogress = new Mprogress();
+      $("#loginId").on("change", function () {
+        var value = 0;
+        if ($("#loginId").val() !== "") {
+          value += 1;
+        }
+        if ($("#password").val() !== "") {
+          value += 1;
+        }
+        var progressValue = value / 2;
+        mprogress.set(progressValue);
+      });
+      $("#password").on("change", function () {
+        var value = 0;
+        if ($("#loginId").val() !== "") {
+          value += 1;
+        }
+        if ($("#password").val() !== "") {
+          value += 1;
+        }
+        var progressValue = value / 2;
+        mprogress.set(progressValue);
+      });
+
+      var password = $('#password').get(0);
+      var passwordCheck = $('#password-check').get(0);
+      passwordCheck.addEventListener('change', function () {
+        if (passwordCheck.checked) {
+          password.setAttribute('type', 'text');
+        } else {
+          password.setAttribute('type', 'password');
+        }
+      }, false);
+
+    });
+  </script>
+</body>
+</html>

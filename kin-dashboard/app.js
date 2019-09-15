@@ -4,8 +4,12 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+// +++ TODO 削除 +++ 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+// +++ TODO 削除 +++ 
+
+const loginRouter = require('./routes/login');
 
 const app = express();
 
@@ -19,11 +23,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// +++ TODO 削除 +++ 
 app.use('/kin-dashboard/index', indexRouter);
 app.use('/kin-dashboard/users', usersRouter);
+// +++ TODO 削除 +++ 
+
+app.use('/kin-dashboard/login', loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
+  console.log("req.url=" + req.url);
   next(createError(404));
 });
 
