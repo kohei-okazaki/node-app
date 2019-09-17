@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>TOP画面</title>
+    <link rel='icon' type='image/png' href='/images/favicon.ico'>
+    <link rel="stylesheet" type="text/css" href="../resources/css/menu.css" th:href="@{/resources/css/menu.min.css}">
+    <link rel="stylesheet" type="text/css" href="../resources/css/input.css" th:href="@{/resources/css/input.min.css}">
+    <link rel="stylesheet" type="text/css" href="../resources/css/layout.css"
+        th:href="@{/resources/css/layout.min.css}">
+    <link rel="stylesheet" type="text/css" href="../resources/css/lib/sal.css"
+        th:href="@{/resources/css/lib/sal.min.css}">
+</head>
+
+<body>
+
+    <div class="contentLayout" data-sal="slide-up">
+        <!-- コンテナ -->
+        <div class="grid">
+
+            <div class="item kintai">
+                <div class="item-content">
+                    <!-- カスタムコンテンツ開始 -->
+                    <div class="attendance-content">
+                        <a href="/attendRegist/input" th:href="@{/attendRegist/input}"
+                            th:text="#{attendanceRegist}"></a>
+                    </div>
+                    <!-- カスタムコンテンツ終了 -->
+                </div>
+            </div>
+
+            <div class="item kintai">
+                <div class="item-content">
+                    <!-- カスタムコンテンツ開始 -->
+                    <div class="attendance-content">
+                        <a href="/login/index" th:href="@{/login/index}" th:text="#{attendanceRefer}"></a>
+                    </div>
+                    <!-- カスタムコンテンツ終了 -->
+                </div>
+            </div>
+
+            <!-- 管理ユーザの場合のみ -->
+            <div class="item setting" th:if="${session['sessionUser'].userAuth} == 1">
+                <div class="item-content">
+                    <!-- カスタムコンテンツ開始 -->
+                    <div class="user-content">
+                        <a href="/ontimeRegist/input" th:href="@{/userRegist/input}" th:text="#{userRegist}"></a>
+                    </div>
+                    <!-- カスタムコンテンツ終了 -->
+                </div>
+            </div>
+
+            <div class="item setting">
+                <div class="item-content">
+                    <!-- カスタムコンテンツ開始 -->
+                    <div class="user-content">
+                        <a href="/userChange/input" th:href="@{/userChange/input}" th:text="#{userCustomize}"></a>
+                    </div>
+                    <!-- カスタムコンテンツ終了 -->
+                </div>
+            </div>
+
+            <!-- 管理ユーザの場合のみ -->
+            <div class="item setting" th:if="${session['sessionUser'].userAuth} == 1">
+                <div class="item-content">
+                    <!-- カスタムコンテンツ開始 -->
+                    <div class="user-content">
+                        <a href="/ontimeRegist/input" th:href="@{/ontimeRegist/input}" th:text="#{ontimeRegist}"></a>
+                    </div>
+                    <!-- カスタムコンテンツ終了 -->
+                </div>
+            </div>
+
+            <div class="item logout">
+                <div class="item-content">
+                    <!-- カスタムコンテンツ開始 -->
+                    <div class="session-content">
+                        <!--/* table部ここから */-->
+                        <div class="table">
+                            <div class="table-row">
+                                <div class="table-data" th:text="#{loginId}"></div>
+                                <div class="table-data">
+                                    <p th:text="${session['sessionUser'].loginId}"></p>
+                                </div>
+                            </div>
+                            <div class="table-row">
+                                <div class="table-data" th:text="#{userName}"></div>
+                                <div class="table-data">
+                                    <p th:text="${session['sessionUser'].userName}"></p>
+                                </div>
+                            </div>
+                            <div class="table-row">
+                                <div class="table-data" th:text="#{userId}"></div>
+                                <div class="table-data">
+                                    <p th:text="${session['sessionUser'].userId}"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/* table部ここまで */-->
+                    </div>
+                    <!-- カスタムコンテンツ終了 -->
+                </div>
+            </div>
+
+            <div class="item logout">
+                <div class="item-content">
+                    <!-- カスタムコンテンツ開始 -->
+                    <div class="common-content">
+                        <a href="/login/index" th:href="@{/login/index}" th:text="#{logout}"></a>
+                    </div>
+                    <!-- カスタムコンテンツ終了 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include("../layout/footer", {}) %>
+
+    <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/hammer.min.js"></script>
+    <script type="text/javascript" src="/javascripts/web-animations.min.js"></script>
+    <script type="text/javascript" src="/javascripts/muuri.min.js"></script>
+    <script type="text/javascript" src="./javascripts/sal.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            sal({
+                threshold: 1,
+                once: false
+            });
+
+            var grid = new Muuri('.grid', {
+                dragEnabled: true
+            });
+        });
+    </script>
+</body>
+
+</html>
