@@ -15,14 +15,19 @@
 <body>
   <div class="login" data-sal="slide-up">
     <form id="loginForm" action="./top" method="post">
+
+      <% if(form.errorMessage !== '') { %>
+        <div class="errorMessage" data-sal="slide-up"><%= form.errorMessage %></div>
+      <% } %>
+
       <div class="unit">
-        <input type="text" id="loginId" value="<%= form.loginId %>" maxlength="16" placeholder="ログインID" />
-        <!-- <input type="text" class="validate[required]" id="loginId" value="<%= form.loginId %>" maxlength="16" placeholder="ログインID" /> -->
+        <input type="text" id="loginId" name="loginId" value="<%= form.loginId %>" maxlength="16" placeholder="ログインID" />
+        <!-- <input type="text" class="validate[required]" id="loginId" name="loginId" value="<%= form.loginId %>" maxlength="16" placeholder="ログインID" /> -->
       </div>
       <div class="unit">
         <div class="checkbox">
-          <input type="password" class="validate[required]" id="password" value="<%= form.password %>" maxlength="16"
-            placeholder="パスワード" />
+          <!-- <input type="password" class="validate[required]" id="password" name="password" value="<%= form.password %>" maxlength="16" placeholder="パスワード" /> -->
+          <input type="password" id="password" name="password" value="<%= form.password %>" maxlength="16" placeholder="パスワード" />
           <label>
             <input type="checkbox" id="password-check" class="checkbox-input" />
             <span class="checkbox-parts">パスワードを表示する</span>
