@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>TOP画面</title>
     <link rel='icon' type='image/png' href='/images/favicon.ico'>
-    <link rel="stylesheet" type="text/css" href="../resources/css/menu.css" th:href="@{/resources/css/menu.min.css}">
-    <link rel="stylesheet" type="text/css" href="../resources/css/input.css" th:href="@{/resources/css/input.min.css}">
-    <link rel="stylesheet" type="text/css" href="../resources/css/layout.css"
-        th:href="@{/resources/css/layout.min.css}">
-    <link rel="stylesheet" type="text/css" href="../resources/css/lib/sal.css"
-        th:href="@{/resources/css/lib/sal.min.css}">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/menu.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/input.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/layout.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/sal.min.css">
 </head>
 
 <body>
@@ -22,8 +21,7 @@
                 <div class="item-content">
                     <!-- カスタムコンテンツ開始 -->
                     <div class="attendance-content">
-                        <a href="/attendRegist/input" th:href="@{/attendRegist/input}"
-                            th:text="#{attendanceRegist}"></a>
+                        <a href="/attendRegist/input">勤怠登録</a>
                     </div>
                     <!-- カスタムコンテンツ終了 -->
                 </div>
@@ -33,7 +31,7 @@
                 <div class="item-content">
                     <!-- カスタムコンテンツ開始 -->
                     <div class="attendance-content">
-                        <a href="/login/index" th:href="@{/login/index}" th:text="#{attendanceRefer}"></a>
+                        <a href="/attendRegist/refer">勤怠照会</a>
                     </div>
                     <!-- カスタムコンテンツ終了 -->
                 </div>
@@ -44,7 +42,7 @@
                 <div class="item-content">
                     <!-- カスタムコンテンツ開始 -->
                     <div class="user-content">
-                        <a href="/ontimeRegist/input" th:href="@{/userRegist/input}" th:text="#{userRegist}"></a>
+                        <a href="/ontimeRegist/input">ユーザ登録</a>
                     </div>
                     <!-- カスタムコンテンツ終了 -->
                 </div>
@@ -54,7 +52,7 @@
                 <div class="item-content">
                     <!-- カスタムコンテンツ開始 -->
                     <div class="user-content">
-                        <a href="/userChange/input" th:href="@{/userChange/input}" th:text="#{userCustomize}"></a>
+                        <a href="/userChange/input">ユーザ設定</a>
                     </div>
                     <!-- カスタムコンテンツ終了 -->
                 </div>
@@ -65,7 +63,7 @@
                 <div class="item-content">
                     <!-- カスタムコンテンツ開始 -->
                     <div class="user-content">
-                        <a href="/ontimeRegist/input" th:href="@{/ontimeRegist/input}" th:text="#{ontimeRegist}"></a>
+                        <a href="/ontimeRegist/input">定時登録</a>
                     </div>
                     <!-- カスタムコンテンツ終了 -->
                 </div>
@@ -106,7 +104,7 @@
                 <div class="item-content">
                     <!-- カスタムコンテンツ開始 -->
                     <div class="common-content">
-                        <a href="/login/index" th:href="@{/login/index}" th:text="#{logout}"></a>
+                        <a href="/login/index">ログアウト</a>
                     </div>
                     <!-- カスタムコンテンツ終了 -->
                 </div>
