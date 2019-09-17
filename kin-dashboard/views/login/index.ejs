@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>ログイン画面</title>
   <link rel='icon' type='image/png' href='/images/favicon.ico'>
   <link rel='stylesheet' href='/stylesheets/loginLayout.min.css' />
@@ -9,9 +11,34 @@
   <link rel='stylesheet' href='/stylesheets/sal.min.css' />
   <link rel='stylesheet' href='/stylesheets/input.min.css' />
 </head>
+
 <body>
   <div class="login" data-sal="slide-up">
+    <form id="loginForm" action="./top" method="post">
+      <div class="unit">
+        <input type="text" id="loginId" value="<%= form.loginId %>" maxlength="16" placeholder="ログインID" />
+        <!-- <input type="text" class="validate[required]" id="loginId" value="<%= form.loginId %>" maxlength="16" placeholder="ログインID" /> -->
+      </div>
+      <div class="unit">
+        <div class="checkbox">
+          <input type="password" class="validate[required]" id="password" value="<%= form.password %>" maxlength="16"
+            placeholder="パスワード" />
+          <label>
+            <input type="checkbox" id="password-check" class="checkbox-input" />
+            <span class="checkbox-parts">パスワードを表示する</span>
+          </label>
+        </div>
+      </div>
+      <div class="unit">
+        <input type="submit" value="ログイン" />
+      </div>
+    </form>
   </div>
+
+  <br>
+
+  <%- include("../layout/footer", {}) %>
+
   <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
   <script type="text/javascript" src="/javascripts/jquery.validationEngine-ja.min.js"></script>
   <script type="text/javascript" src="/javascripts/jquery.validationEngine.min.js"></script>
@@ -69,4 +96,5 @@
     });
   </script>
 </body>
+
 </html>

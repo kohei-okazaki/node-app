@@ -1,0 +1,94 @@
+/*******************/
+/* menu.css */
+/*******************/
+@charset "UTF-8";
+
+/* グリッドレイアウトのコンテナ */
+.grid {
+  position : relative;
+  width : 878px;
+  max-width : 100%;
+  margin : 0 auto;
+}
+
+/* アイテム */
+.item {
+  display : block;
+  position : absolute;
+  width : 200px;
+  height : 200px;
+  margin : 7px;
+  z-index : 1;
+  cursor: pointer;
+}
+
+.item-content {
+  position : relative;
+  width : 100%;
+  height : 100%;
+  display : table;
+}
+
+.attendance-content {
+  display : table-cell;
+  vertical-align : middle;
+  text-align : center;
+  background : #fff;
+  color : #00ff00;
+  border : 4px solid;
+  border-radius : 3px;
+}
+
+.user-content {
+  display : table-cell;
+  vertical-align : middle;
+  text-align : center;
+  background : #fff;
+  color : #8000ff;
+  border : 4px solid;
+  border-radius : 3px;
+}
+
+.common-content {
+  display : table-cell;
+  vertical-align : middle;
+  text-align : center;
+  background : #fff;
+  color : #ff0000;
+  border : 4px solid;
+  border-radius : 3px;
+}
+
+.session-content {
+  display : table-cell;
+  vertical-align : middle;
+  text-align : center;
+  background : #fff;
+  color : #ff0000;
+  border : 4px solid;
+  font-size: 12px;
+  border-radius : 3px;
+}
+
+/* 877ピクセル幅以下になったら3カラム化 */
+@media (max-width : 877px) {
+  .item{
+    width : calc(33.33% - 11px);
+    height : calc(33.33vw - 11px);
+  }
+}
+
+/* 640ピクセル幅以下になったら2カラム化 */
+@media (max-width : 640px) {
+  .item {
+    width : calc(50% - 10px);
+    height : calc(50vw - 10px);
+  }
+}
+
+a {
+  font-family: "YuGothic M";
+  /* font-size : 10px; */
+  text-decoration: none;
+
+}
