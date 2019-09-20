@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require("body-parser")
 const { check, validationResult } = require('express-validator');
+const SessionLoginUser = require("./sessionLoginUser");
 
 /** 
  * ログイン画面表示
@@ -30,7 +31,7 @@ router.post('/top', [
         .isEmpty().withMessage('ログインIDの入力は必須です'),
     check('password')
         .isEmpty().withMessage('パスワードの入力は必須です')
-], function (req, res) {
+], function (req, res, next) {
 
     const errors = validationResult(req);
 
@@ -51,10 +52,22 @@ router.post('/top', [
         };
         res.render('login/index', view);
     } else {
-        res.render('login/top', {});
+        // ログイン処理を記載
+        // ログインユーザ情報を検索
+        // 入力値とログインユーザ情報を比較する
+        // セッションにSessionLoginUserを設定する
+        let sessionLoginUser = new SessionLoginUser();
+        sessionLoginUser.setLoginId(req.body.loginId);
+        sessionLoginUser.setPassword(req.body.password);
+        sessionLoginUser.setUserName('entity.userName');
+        sessionLoginUser.setUserAuth('entity.userAuth');
+        sessionLoginUser.setUserId('entity.userId');
+        req.session.sessionLoginUser = sessionLoginUser;
+        res.render('login/top', { 
+            sessionLoginUser: sessionLoginUser 
+        });
     }
 });
-
 
 
 module.exports = router;

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>エラーが発生しました</title>
+  <link rel='icon' type='image/png' href='/images/favicon.ico'>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/input.min.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/layout.min.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/sal.min.css">
+</head>
+
+<body>
+
+  <div align="center" class="contentLayout" data-sal="slide-up">
+    <h2>エラー画面</h2>
+    <% if(form.errorMessage !== '') { %>
+    <div class="errorMessage" data-sal="slide-up"><%= form.errorMessage %></div>
+    <% } %>
+  </div>
+
+  <%- include("../layout/footer", {}) %>
+
+  <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+  <script type="text/javascript" src="/javascripts/sal.min.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      sal({
+        threshold: 1,
+        once: false
+      });
+    });
+  </script>
+</body>
+
+</html>

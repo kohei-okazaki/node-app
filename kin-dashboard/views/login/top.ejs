@@ -38,7 +38,8 @@
             </div>
 
             <!-- 管理ユーザの場合のみ -->
-            <div class="item setting" th:if="${session['sessionUser'].userAuth} == 1">
+            <% if (sessionLoginUser.userAuth === '1') {%>
+            <div class="item setting">
                 <div class="item-content">
                     <!-- カスタムコンテンツ開始 -->
                     <div class="user-content">
@@ -47,6 +48,7 @@
                     <!-- カスタムコンテンツ終了 -->
                 </div>
             </div>
+            <% } %>
 
             <div class="item setting">
                 <div class="item-content">
@@ -59,6 +61,7 @@
             </div>
 
             <!-- 管理ユーザの場合のみ -->
+            <% if (sessionLoginUser.userAuth === '1') {%>
             <div class="item setting" th:if="${session['sessionUser'].userAuth} == 1">
                 <div class="item-content">
                     <!-- カスタムコンテンツ開始 -->
@@ -68,33 +71,34 @@
                     <!-- カスタムコンテンツ終了 -->
                 </div>
             </div>
+            <% } %>
 
             <div class="item logout">
                 <div class="item-content">
                     <!-- カスタムコンテンツ開始 -->
                     <div class="session-content">
-                        <!--/* table部ここから */-->
+                        <!-- table部ここから -->
                         <div class="table">
                             <div class="table-row">
-                                <div class="table-data" th:text="#{loginId}"></div>
+                                <div class="table-data">ログインID</div>
                                 <div class="table-data">
-                                    <p th:text="${session['sessionUser'].loginId}"></p>
+                                    <%= sessionLoginUser.loginId %>
                                 </div>
                             </div>
                             <div class="table-row">
-                                <div class="table-data" th:text="#{userName}"></div>
+                                <div class="table-data">ユーザ名</div>
                                 <div class="table-data">
-                                    <p th:text="${session['sessionUser'].userName}"></p>
+                                    <%= sessionLoginUser.userName %>
                                 </div>
                             </div>
                             <div class="table-row">
-                                <div class="table-data" th:text="#{userId}"></div>
+                                <div class="table-data">ユーザID</div>
                                 <div class="table-data">
-                                    <p th:text="${session['sessionUser'].userId}"></p>
+                                    <%= sessionLoginUser.userId %>
                                 </div>
                             </div>
                         </div>
-                        <!--/* table部ここまで */-->
+                        <!-- table部ここまで -->
                     </div>
                     <!-- カスタムコンテンツ終了 -->
                 </div>
@@ -118,7 +122,7 @@
     <script type="text/javascript" src="/javascripts/hammer.min.js"></script>
     <script type="text/javascript" src="/javascripts/web-animations.min.js"></script>
     <script type="text/javascript" src="/javascripts/muuri.min.js"></script>
-    <script type="text/javascript" src="./javascripts/sal.min.js"></script>
+    <script type="text/javascript" src="/javascripts/sal.min.js"></script>
     <script type="text/javascript">
         $(function () {
 
